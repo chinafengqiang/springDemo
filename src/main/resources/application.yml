@@ -1,0 +1,31 @@
+
+spring:
+  redis:
+    database: 0 # Redis数据库索引（默认为0）
+    #host: 10.10.17.200 # Redis服务器地址
+    #port: 7001 # Redis服务器连接端口
+    password: # Redis服务器连接密码（默认为空）
+    lettuce:
+      pool:
+        max-active: 200  #连接池最大连接数（使用负值表示没有限制） 默认8
+        max-idle: 200  #连接池中的最大空闲连接 默认8
+        min-idle: 0  #连接池中的最小空闲连接 默认0
+        max-wait: 5000  #连接池最大阻塞等待时间（使用负值表示没有限制） 默认 -1
+    timeout: 3000  #连接超时时间（毫秒）
+    cluster:
+      nodes:
+        - 10.10.17.200:7001
+        - 10.10.17.200:7002
+        - 10.10.17.200:7003
+        - 10.10.17.201:7004
+        - 10.10.17.201:7005
+        - 10.10.17.201:7006
+  rabbitmq:
+    host: 10.10.17.200
+    port: 5672
+    username: feng
+    password: 123
+    virtual-host: /
+
+server:
+  port: 8081
